@@ -1,7 +1,7 @@
 library(tidyverse)
 library(gt)
 
-img <- "figures-and-tables/coconuts-table/crazy-in-the-coconut.jpeg"
+img <- "figures-and-tables/coconuts-table/coconut.jpeg"
 
 expected_obs <- 
   tibble(
@@ -19,8 +19,6 @@ expected_obs <-
     tab_header("Expection") 
     
 expected_obs
-
-gtsave(expected_obs, "ps-and-qs-manuscript/expected-obs.html")
 
 coconut_obs <- 
   tibble(
@@ -40,4 +38,3 @@ coconut_obs <-
 
 coconut_obs
 
-gtsave(coconut_obs, "ps-and-qs-manuscript/coconut-obs.html")
