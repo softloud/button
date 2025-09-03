@@ -6,12 +6,8 @@ txt_employee_id <- "#666-LV-426"
 
 txt_rage_quit <- "Rage quit."
 
-
-
 # node attributes
 txt_welcome <- "Welcome to your first day at TechCo! You are a data scientist, it is your job to press buttons." 
-
-
 txt_start <- c(
   "PRESS A BUTTON NOW",
   "AI and Analytics Job Simulator"
