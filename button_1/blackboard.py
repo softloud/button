@@ -1,5 +1,5 @@
-from narrative_vis import get_data_url
+from button_1.ButtonDat import ButtonDat
 
-dat_edges = get_data_url('edges')
+button_data = ButtonDat('edges')
 
-print(dat_edges)
+print(button_data.df.head())
