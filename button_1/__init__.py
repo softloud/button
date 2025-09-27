@@ -54,7 +54,7 @@ def main():
         Exception: If game data loading fails or .env configuration is missing
     """
     try:
-        print("🎮 Welcome to 'Press A Button Now' - A Data Science Adventure!")
+        print("🎮 Starting 'Press A Button Now' - A Data Science Adventure!")
         print("Loading game...")
         
         # Initialize the game
