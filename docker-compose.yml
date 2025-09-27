@@ -1,0 +1,34 @@
+version: '3.8'
+
+services:
+  button-game:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    container_name: press-a-button-now
+    environment:
+      # Google Sheets credentials (will be passed from host .env)
+      - BUTTON_SHEET_ID=${BUTTON_SHEET_ID}
+      - BUTTON_SHEET_EDGES_GID=${BUTTON_SHEET_EDGES_GID}
+      - BUTTON_SHEET_NODES_GID=${BUTTON_SHEET_NODES_GID}
+      - BUTTON_SHEET_TEXT_GID=${BUTTON_SHEET_TEXT_GID}
+      - BUTTON_SHEET_TITLES_GID=${BUTTON_SHEET_TITLES_GID}
+    volumes:
+      # Optional: Mount a volume to persist any game data or logs
+      - game_data:/app/data
+    stdin_open: true  # Keep STDIN open for interactive game
+    tty: true        # Allocate a pseudo-TTY for proper terminal interaction
+    restart: unless-stopped
+    
+    # Optional: Add network configuration if needed
+    # networks:
+    #   - button-network
+
+volumes:
+  game_data:
+    driver: local
+
+# Optional: Custom network
+# networks:
+#   button-network:
+#     driver: bridge
