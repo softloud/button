@@ -1,0 +1,59 @@
+# Git files
+.git
+.gitignore
+
+# Python cache and virtual environments
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.so
+.venv
+venv/
+env/
+.env.example
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Test and development files
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.mypy_cache/
+.flake8
+
+# Documentation build
+docs/_build/
+site/
+
+# Temporary files
+*.tmp
+*.log
+temp/
+tmp/
+
+# Docker files (don't copy into container)
+Dockerfile*
+docker-compose*.yml
+.dockerignore
+
+# Game development files
+button_1/vis/
+*.png
+*.jpg
+*.gif
+
+# Any sensitive or local config files
+.env.local
+secrets/
