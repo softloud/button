@@ -11,10 +11,8 @@ print("\nNodes data:")
 print(game_data.nodes_df.head())
 print("\nText data:")
 print(game_data.text_df.head())
-print("\nText data:")
-print(game_data.text_df.head())
-print("\nTitles data:")
-print(game_data.titles_df.head())
+# print("\nTitles data:")
+# print(game_data.titles_df.head())
 
 # Create and save the story graph
 story_graph = StoryGraph()
