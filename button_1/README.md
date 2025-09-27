@@ -1,6 +1,12 @@
 ## Press a button now!
 
-version: 1
+## Run the game
+
+```bash
+python -m button_1
+```
+
+## version: 1
 
 - port to python
 - read from a googlesheet so writing is easy

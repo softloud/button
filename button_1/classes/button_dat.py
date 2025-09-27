@@ -1,29 +1,90 @@
+"""
+ButtonDat - Game Data Aggregation and Validation
+=================================================
+
+This module provides comprehensive data management for the text-based adventure
+game, aggregating content from multiple Google Sheets sources and providing
+validation and query interfaces for game logic.
+
+The ButtonDat class serves as the central data hub, loading and coordinating
+edges, nodes, and text data while providing convenient methods for game
+state queries and content retrieval.
+
+Classes:
+    ButtonDat: Main data aggregator and query interface
+
+Data Sources:
+    - edges: State transition definitions with outro text and desired flags
+    - nodes: Node definitions with titles, content, and edge selectors  
+    - text: Reusable text snippets and UI elements
+
+Key Features:
+    - Automatic Google Sheets data loading with rate limiting
+    - Comprehensive data validation with detailed error reporting
+    - Convenient query methods for game logic
+    - Robust connection mapping for state transitions
+"""
+
 from .button_df import ButtonDf
+import time
 
 
 class ButtonDat:
     """
-    Comprehensive data object for the text-based adventure game.
-    Uses ButtonDf scraper to load multiple datasets (nodes and edges).
+    Comprehensive data manager for the text-based adventure game.
+    
+    ButtonDat serves as the central data hub, loading content from multiple
+    Google Sheets sources and providing validation and query interfaces
+    for all game logic. It coordinates edges, nodes, and text data while
+    implementing rate limiting to avoid API restrictions.
+    
+    The class provides high-level methods for common game queries like
+    finding node connections, validating data integrity, and retrieving
+    text content, abstracting away the complexity of working with
+    multiple data sources.
+    
+    Attributes:
+        edges_df (pd.DataFrame): State transition definitions
+        nodes_df (pd.DataFrame): Node content and configuration
+        text_df (pd.DataFrame): Reusable text snippets
+        
+    Data Structure:
+        edges: source, target, outro_text, desired
+        nodes: node, edge_selector, title_text, intro_text, event_text, pbn
+        text: id_text, text_type, text_context, text
     """
     
     def __init__(self):
-        """Initialize with edges, nodes, and text data"""
-        # Load edges data
+        """
+        Initialize with comprehensive data loading from Google Sheets.
+        
+        Loads three primary datasets (edges, nodes, text) with appropriate
+        rate limiting between requests to avoid Google Sheets API restrictions.
+        Each dataset is loaded via ButtonDf scrapers with automatic retry logic.
+        
+        Raises:
+            ConnectionError: If Google Sheets data cannot be accessed
+            ValueError: If required data columns are missing or malformed
+            
+        Note:
+            Requires .env file with appropriate Google Sheets API credentials
+            and sheet configuration for the 'edges', 'nodes', and 'text' tabs.
+        """
+        # Add small delays to avoid Google Sheets rate limiting
+        
+        # Load edges data - state transitions and outcomes
         self._edges_scraper = ButtonDf('edges')
         self.edges_df = self._edges_scraper.df
+        time.sleep(0.5)  # Rate limiting delay
         
-        # Load nodes data  
+        # Load nodes data - individual node definitions
         self._nodes_scraper = ButtonDf('nodes')
         self.nodes_df = self._nodes_scraper.df
+        time.sleep(0.5)  # Rate limiting delay
         
-        # Load text data
+        # Load text data - reusable content snippets
         self._text_scraper = ButtonDf('text')
         self.text_df = self._text_scraper.df
-
-        # Load titles data
-        self._titles_scraper = ButtonDf('titles')
-        self.titles_df = self._titles_scraper.df
 
     @property
     def edges(self):

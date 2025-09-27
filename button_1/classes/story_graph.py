@@ -1,9 +1,80 @@
+"""
+StoryGraph - Narrative Visualization and Analysis
+=================================================
+
+This module provides comprehensive visualization and analysis capabilities
+for the text-based adventure game's narrative structure. It creates network
+graphs that reveal the story's branching paths, decision points, and cycles.
+
+The StoryGraph class extends ButtonDat to provide NetworkX-based graph
+visualization with sophisticated styling and layout options optimized
+for narrative flow analysis.
+
+Classes:
+    StoryGraph: Network visualization of game narrative structure
+
+Key Features:
+    - NetworkX directed graph construction from edge data
+    - Sophisticated color coding for different node types
+    - Multi-line node labels for improved readability
+    - Professional styling with "murky chic" color palette
+    - Flexible layout algorithms (spring, hierarchical, etc.)
+    - High-resolution PNG export capabilities
+
+Visualization Elements:
+    - Node colors indicate edge selector types (auto, random, choice, etc.)
+    - Arrow directions show state transition flows
+    - Multi-line labels prevent text overlapping
+    - Earth-tone color palette for professional presentation
+"""
+
 import networkx as nx
 import matplotlib.pyplot as plt 
 from .button_dat import ButtonDat
 
 class StoryGraph(ButtonDat):
+    """
+    Network graph visualization of the game's narrative structure.
+    
+    StoryGraph creates and visualizes the complete narrative flow of the
+    text-based adventure game using NetworkX directed graphs. It provides
+    sophisticated styling and layout options to clearly communicate the
+    story's branching structure, decision points, and potential cycles.
+    
+    The visualization uses color coding to distinguish different types of
+    nodes (auto-progression, random selection, player choice, etc.) and
+    provides clear directional flow indicators to show how players move
+    through the narrative space.
+    
+    Inherits from:
+        ButtonDat: Provides access to edges, nodes, and text data
+    
+    Attributes:
+        graph (nx.DiGraph): NetworkX directed graph of narrative structure
+        
+    Color Coding:
+        - Dark slate gray: Automatic progression nodes
+        - Dark olive green: Player choice points (future)
+        - Peru/burnt ochre: Conditional branches (future)
+        - Saddle brown: Random outcome nodes
+        - Dark goldenrod: User input required (future)
+        - Maroon: End points/terminals
+        - Dark slate blue: Start points
+        - Dim gray: Unknown/other node types
+    """
+    
     def __init__(self):
+        """
+        Initialize graph with data loading and NetworkX construction.
+        
+        Loads all game data via ButtonDat parent class, then constructs
+        a NetworkX directed graph from the edges DataFrame for visualization
+        and analysis purposes.
+        
+        The resulting graph structure can be used for pathfinding, cycle
+        detection, narrative analysis, and visual representation of the
+        complete game flow.
+        """
         super().__init__()
         # Create directed graph from edges DataFrame
         self.graph = nx.from_pandas_edgelist(
@@ -14,7 +85,26 @@ class StoryGraph(ButtonDat):
         )
 
     def _get_node_colors(self):
-        """Generate node colors based on edge_selector attribute"""
+        """
+        Generate sophisticated node colors based on edge_selector attributes.
+        
+        Implements a "murky chic" color palette using professional earth tones
+        to distinguish different node types while maintaining visual coherence.
+        Colors are mapped to edge_selector values from the nodes DataFrame.
+        
+        Returns:
+            list: Color strings for each node in graph order
+            
+        Color Mapping:
+            auto -> Dark slate gray: Automatic progression
+            choice -> Dark olive green: Player decision points  
+            condition -> Peru: Conditional logic branches
+            random -> Saddle brown: Random outcome selection
+            input -> Dark goldenrod: User input requirements
+            end -> Maroon: Terminal/ending nodes
+            start -> Dark slate blue: Initial/starting nodes
+            unknown -> Dim gray: Unrecognized edge selectors
+        """
         # Murky chic color mapping - sophisticated earth tones
         color_map = {
             'auto': '#2F4F4F',        # Dark slate gray - automatic progression
