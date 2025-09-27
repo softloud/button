@@ -26,3 +26,4 @@ Each node consists of:
 2. Game event determining edge.
 
 ## Narrative edge determinisation
+
