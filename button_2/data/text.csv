@@ -1,0 +1,5 @@
+id_text,text_type,text_context,text
+pbn,generic,input,Press a button now
+edge_good,edge,edge_selector,This step went as expected.
+edge_bad,edge,edge_selector,"Oh, no! Something isn't quite right."
+employee_id,employee,,
