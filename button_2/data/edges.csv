@@ -1,0 +1,14 @@
+source,target,outro_text,desired
+start_game,welcome,You begin your career in data.,True
+welcome,onboarding,You proceed to onboarding.,True
+onboarding,initiate_project,Well done for completing onboarding. Your button-pressing mastery qualifies you to begin consulting with TechCo stakeholders! ,True
+initiate_project,source_data,"With a question defined by the stakeholder, you are ready to source the data. Leadership promise there will be cake after the analysis presentation.",True
+source_data,transform_data,You find clearly-marked tables with interpretable column names.,True
+transform_data,analyse_data,You architect a clean data lineage that pulls the sources together into datasets ready for analysis.,True
+analyse_data,report_analytics,You build dashboards that answer the question the stakeholder framed.,True
+report_analytics,decision_maker,You present your findings with flair in the boardroom to the stakeholders.,True
+report_analytics,source_data,"During your presentation one of the stakeholders points out there's no integration of a data source that was never mentioned until now. You will need to go back to scouring through the names of databases in the datawarehouse to find the needle in the haystack desired column required, it likely doesn't have a very informative column name.",False
+decision_maker,initiate_project,"When the analysis reaches leadership, they state it doesn't answer the question posed. An abortive blame game erupts over whether you misunderstood the question, your manager miscommunicated ir, or whether leadership failed to make their actual needs known. The upshot it is, you begin the analysis again.",False
+analyse_data,transform_data,"Your analysis shows duplicates and missingness, empty bar plots, weird-looking scatter plots. Time to dive back into the data lineage spaghetti and figure out what went wrong.",False
+decision_maker,end,Leadership declare the results satisfactory but there is a sense that this only sort-of answered the questions they had. There is no cake. You switch your professional profile to availabe for hire.,True
+end,summary,,True
