@@ -1,0 +1,11 @@
+project:
+  type: website
+
+execute:
+  engine: jupyter
+
+jupyter:
+  python: ".venv/bin/python"
+  
+environment:
+  PYTHONPATH: "/home/cantabile/Documents/repos/button"

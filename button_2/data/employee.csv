@@ -1,6 +1,16 @@
 job_title,department
-data scientist,data
-data analyst,data analytics
-data engineer,business intelligence
-analytics engineer,data & analytics
-business intelligence analyst,data science
+Data scientist,Data & analytics
+Data analyst,Data analytics
+Data engineer,Businsess intelligence
+Analytics engineer,Data & AI
+Business intelligence analyst,Data science
+ML engineer,AI
+AI engineer,AI/ML
+Decision scientist,Machine learning
+Insights analyst,Data strategy
+Data architect,Data governance & strategy
+Predictive modeller,Data enablement
+Research software engineer,Data innovation
+ML developer,Data transformation
+AI developer,Analytics
+Data developer,Insights & reporting
