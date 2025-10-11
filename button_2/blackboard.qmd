@@ -1,0 +1,78 @@
+---
+execute: 
+  jupyter:
+      python: ".venv/bin/python"
+---
+
+```{python }
+
+from classes.data.button_dat import ButtonDat
+
+
+```
+
+
+
+
+```{python}
+button_dat = ButtonDat()
+
+```
+
+Button dat should have an attribute that is edges.
+
+```{python}
+button_dat.edges_df
+
+
+```
+
+Button dat should has have nodes df.
+
+```{python}
+button_dat.nodes_df
+
+```
+
+## employee
+
+Now to try employee, which takes button dat as input.
+
+```{python}
+from  classes.entities.employee import Employee
+
+```
+
+
+```{python}
+employee = Employee(button_dat)
+
+```
+
+## text rendering
+
+```{python}
+
+from classes.text_gen.textgen_employee import EmployeeTextGenerator
+
+# generate the text
+employee_text = EmployeeTextGenerator(employee)
+
+vars(employee_text)
+
+```
+
+```{python}
+from classes.text_render.text_render_employee import EmployeeTextRenderer
+
+employee_text_rendered = EmployeeTextRenderer(employee_text)
+
+```
+
+This is where I apply wrappers.
+
+```{python}
+
+employee_text_rendered.rendered_text
+
+```
