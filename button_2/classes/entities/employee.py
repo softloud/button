@@ -1,5 +1,5 @@
 import random 
-from classes.data.button_dat import ButtonDat
+from ..data.button_dat import ButtonDat
 
 class Employee:
     def __init__(self, button_dat: ButtonDat):

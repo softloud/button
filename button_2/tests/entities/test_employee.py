@@ -3,10 +3,7 @@ import pandas as pd
 from button_2.classes.data.button_dat import ButtonDat
 
 button_dat = ButtonDat()
-employee = Employee(
-    job_title=button_dat.employee_df.iloc[0]['job_title'] if not button_dat.employee_df.empty else None,
-    department=button_dat.employee_df.iloc[0]['department'] if not button_dat.employee_df.empty else None
-)
+employee = Employee(button_dat)
 
 def test_employee_init():
     assert employee is not None
@@ -34,10 +31,7 @@ def helper_test_reorg_method():
     # so will run multiple times in main test
 
     initial_state = (employee.job_title, employee.department)
-    employee.set_current_titles(
-        job_titles=button_dat.employee_df['job_title'].dropna().values,
-        departments=button_dat.employee_df['department'].dropna().values
-    )
+    employee.set_current_titles()
     new_state = (employee.job_title, employee.department)
     return {"state_change": initial_state != new_state, 
             "job_title": employee.job_title,
