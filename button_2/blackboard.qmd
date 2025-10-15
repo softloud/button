@@ -87,3 +87,19 @@ from classes.game.node_engine import NodeEngine
 node_engine = NodeEngine()
 
 ```
+
+## game 
+
+
+```{python}
+from classes.game.game_engine import GameEngine
+
+game_engine = GameEngine()
+
+```
+
+
+```{python}
+game_engine.current_node
+
+```
