@@ -76,3 +76,14 @@ This is where I apply wrappers.
 employee_text_rendered.rendered_text
 
 ```
+
+
+## 
+
+
+```{python}
+from classes.game.node_engine import NodeEngine
+
+node_engine = NodeEngine()
+
+```

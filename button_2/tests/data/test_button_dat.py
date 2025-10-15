@@ -15,3 +15,9 @@ def test_button_dat_initialisation():
     assert not game_data.nodes_df.empty, "Nodes DataFrame should not be empty"
     assert not game_data.text_df.empty, "Text DataFrame should not be empty"
     assert not game_data.employee_df.empty, "Employee DataFrame should not be empty"
+
+    # Test edges has expected columns
+    expected_edge_columns = {'source', 'target', 'outro_text', 'desired'}
+    assert set(game_data.edges_df.columns) == expected_edge_columns, (
+        "Edges DataFrame has unexpected columns"
+    )
