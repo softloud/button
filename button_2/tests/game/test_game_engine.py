@@ -1,13 +1,15 @@
+import pytest
 from button_2.classes.game.game_engine import GameEngine
-from button_2.classes.data.button_dat import ButtonDat
-from button_2.classes.entities.employee import Employee
 
 # this tests that the game engine has the required attributes & methods
 
 # instantiate the game engine
 # nb this is where I will pass hyper parameters to tweak probabilities
 
-button_game <- GameEngine()
+@pytest.fixture
+def button_game():
+    button_game = GameEngine()
+    return button_game
 
 # test the game engine is a thing
 def test_game_engine(button_game: GameEngine):
