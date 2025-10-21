@@ -10,4 +10,8 @@ class GameEngine:
         self.narrative_path = [self.current_node]
         self.nodes_visited = {self.current_node: 1}
         self.node = NodeEngine(self.button_dat, self.employee)
+    
+    def start_game(self):
+        print(f"node: {self.node.current_node}")
+        
 
