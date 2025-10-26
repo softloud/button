@@ -1,6 +1,8 @@
 from ..data.button_dat import ButtonDat
 from ..entities.employee import Employee
 from .node_engine import NodeEngine
+from ..text_gen.textgen_employee import EmployeeTextGenerator
+from ..text_render.text_render_employee import EmployeeTextRenderer
 
 class GameEngine:
     def __init__(self):
@@ -12,6 +14,8 @@ class GameEngine:
         self.node = NodeEngine(self.button_dat, self.employee)
     
     def start_game(self):
-        print(f"node: {self.node.current_node}")
+        employee_text = EmployeeTextGenerator(self.employee)
+        employee_text_rendered = EmployeeTextRenderer(employee_text)
+        print(f"{employee_text_rendered.rendered_text}")
         
 
